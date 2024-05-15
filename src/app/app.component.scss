@@ -1,0 +1,42 @@
+mat-drawer-container {
+  height: 100vh;
+}
+
+mat-drawer {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  width: 320px;
+  font-size: 18px;
+  div:first-of-type {
+    height: 64px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 0px 32px;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    >li {
+      height: 64px;
+      padding: 0px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+mat-toolbar {
+  height: 64px;
+  color: white;
+  background-color: #3c55bb;
+  display: flex;
+  gap: 32px;
+  padding: 0px 32px;
+}
