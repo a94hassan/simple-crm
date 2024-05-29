@@ -6,16 +6,12 @@
         <th>E-Mail</th>
         <th>City</th>
       </tr>
-      <tr>
-        <td>sd</td>
-        <td>sda</td>
-        <td>dasd</td>
+      <tr *ngFor="let user of userService.users">
+        <td>{{user.firstName}} {{user.lastName}}</td>
+        <td></td>
+        <td>{{user.city}}</td>
       </tr>
-      <tr>
-        <td>sd</td>
-        <td>sda</td>
-        <td>dasd</td>
-      </tr>
+  
     </table>
   </mat-card-content>
 </mat-card>
