@@ -7,9 +7,9 @@
         <th>City</th>
       </tr>
       <tr *ngFor="let user of userService.users">
-        <td>{{user.firstName}} {{user.lastName}}</td>
-        <td></td>
-        <td>{{user.city}}</td>
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.city }}</td>
       </tr>
   
     </table>

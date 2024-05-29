@@ -38,6 +38,7 @@ export class UserService {
       id: id || '',
       firstName: obj.firstName || '',
       lastName: obj.lastName || '',
+      email: obj.email || '',
       birthDate: obj.birthDate || '',
       street: obj.street || '',
       zipCode: obj.zipCode || '',
