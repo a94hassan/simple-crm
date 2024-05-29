@@ -13,6 +13,10 @@ mat-drawer {
     display: flex;
     align-items: center;
     padding: 0px 32px;
+    >img {
+      height: 40px;
+
+    }
   }
   ul {
     list-style: none;
