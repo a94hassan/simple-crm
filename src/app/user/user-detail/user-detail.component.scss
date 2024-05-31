@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  padding: 48px 120px;
+  margin-top: 32px;
+}
+
+mat-card:first-of-type {
+  height: 240px;
+  background-color: #3f51b5;
+  color: white;
+  mat-card-content {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    gap: 32px;
+    >img {
+      height: 120px;
+      width: 120px;
+      border-radius: 100%;
+      border: 4px solid white;
+      margin-left: 32px;
+    }
+    >div {
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}
+
+mat-card:last-of-type {
+  margin-top: 32px;
+  padding: 0px 32px;
+}

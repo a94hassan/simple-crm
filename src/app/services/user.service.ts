@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Firestore, collection, doc, onSnapshot } from '@angular/fire/firestore';
 import { UserInterface } from '../interfaces/user.interface';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,10 +28,17 @@ export class UserService {
   subUsers() {
     return onSnapshot(this.getUsersRef(), (list) => {
       this.users = [];
-      list.forEach(element => {
-        this.users.push(this.setUserObject(element.data(), element.id))
+      list.forEach(element => { 
+        this.users.push(this.setUserObject(element.data(), element.id));
+        console.log(this.users);
       })
     })
+  }
+
+  subUser(id: string) {
+    return onSnapshot(this.getSingleDocRef('users', id), (element) => {
+      console.log(element);
+    });
   }
 
   setUserObject(obj: any, id:string):UserInterface {

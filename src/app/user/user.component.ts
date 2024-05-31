@@ -8,11 +8,12 @@ import { User } from '../../models/user.class';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/user.service';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatTooltipModule, MatCardModule, CommonModule],
+  imports: [MatButtonModule, MatIconModule, MatTooltipModule, MatCardModule, CommonModule, RouterOutlet, RouterModule ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
