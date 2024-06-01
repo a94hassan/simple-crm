@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, doc, onSnapshot } from '@angular/fire/firestore';
+import { Firestore, collection, doc, getDoc, onSnapshot } from '@angular/fire/firestore';
 import { UserInterface } from '../interfaces/user.interface';
+import { User } from '../../models/user.class';
 
 
 @Injectable({
@@ -11,6 +12,7 @@ export class UserService {
   fireStore: Firestore = inject(Firestore);
 
   users: UserInterface[] = [];
+  user: any = [];
   unsubUsers;
 
   constructor() { 
@@ -35,11 +37,17 @@ export class UserService {
     })
   }
 
-  subUser(id: string) {
-    return onSnapshot(this.getSingleDocRef('users', id), (element) => {
-      console.log(element);
-    });
+  async getUser(docId: string) {
+    let docRef = doc(this.fireStore, 'users', docId);
+    let docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      this.user.push(docSnap.data());
+    } else {
+      console.log("No such document!");
+    }
   }
+
 
   setUserObject(obj: any, id:string):UserInterface {
     return {
