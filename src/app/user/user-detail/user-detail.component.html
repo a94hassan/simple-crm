@@ -2,8 +2,8 @@
   <mat-card-content>
     <img src="./../../../assets/img/pp.png" alt="">
     <div>
-      <h2></h2>
-      <span>Hallo</span>
+      <h2>{{ userService.user.firstName }} {{ userService.user.lastName }}</h2>
+      <span>{{ userService.user.email }}</span>
     </div>
   </mat-card-content>
 </mat-card>
@@ -13,6 +13,8 @@
     <mat-card-title>Address</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    
+    <span>{{ userService.user.street }}</span>
+    <span>{{ userService.user.zipCode }} {{ userService.user.city }}</span>
+
   </mat-card-content>
 </mat-card>

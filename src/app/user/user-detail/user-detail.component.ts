@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { User } from '../../../models/user.class';
 
 
 @Component({

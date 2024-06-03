@@ -24,8 +24,10 @@ mat-card:first-of-type {
       height: 120px;
       display: flex;
       justify-content: center;
-      align-items: center;
       flex-direction: column;
+      >h2 {
+        margin: 0;
+      }
     }
   }
 }
@@ -33,4 +35,8 @@ mat-card:first-of-type {
 mat-card:last-of-type {
   margin-top: 32px;
   padding: 0px 32px;
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+  }
 }

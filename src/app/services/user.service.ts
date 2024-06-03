@@ -12,7 +12,7 @@ export class UserService {
   fireStore: Firestore = inject(Firestore);
 
   users: UserInterface[] = [];
-  user: any;
+  user: UserInterface = new User();
   unsubUsers;
 
   constructor() { 
@@ -40,8 +40,7 @@ export class UserService {
     let docRef = doc(this.fireStore, 'users', docId);
     let docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      this.user = docSnap.data();
-      this.user.id = docId;
+      this.user = this.setUserObject(docSnap.data(), docId);
     } else {
       console.log("No such document!");
     }
