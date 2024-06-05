@@ -5,9 +5,14 @@
 }
 
 mat-card:first-of-type {
-  height: 240px;
+  height: 320px;
   background-color: #3f51b5;
   color: white;
+  >button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
   mat-card-content {
     display: flex;
     align-items: flex-end;
@@ -35,6 +40,11 @@ mat-card:first-of-type {
 mat-card:last-of-type {
   margin-top: 32px;
   padding: 0px 32px;
+  >button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
   mat-card-content {
     display: flex;
     flex-direction: column;

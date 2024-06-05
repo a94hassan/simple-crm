@@ -1,0 +1,27 @@
+h2 {
+  font-size: 32px !important;
+  margin-top: 16px;
+}
+
+.gap-16 {
+  display: flex;
+  gap: 16px;
+  &:first-of-type {
+    margin-top: 16px;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 0px 24px;
+  >button {
+    border-radius: 24px;
+    padding: 8px 16px;
+  }
+}

@@ -1,4 +1,10 @@
 <mat-card>
+  <button mat-icon-button [matMenuTriggerFor]="topMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #topMenu="matMenu">
+    <button mat-menu-item (click)="openUserDialog()">Edit</button>
+  </mat-menu>
   <mat-card-content>
     <img src="./../../../assets/img/pp.png" alt="">
     <div>
@@ -9,6 +15,12 @@
 </mat-card>
 
 <mat-card>
+  <button mat-icon-button [matMenuTriggerFor]="bottomMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #bottomMenu="matMenu">
+    <button mat-menu-item (click)="openAddressDialog()">Edit</button>
+  </mat-menu>
   <mat-card-header>
     <mat-card-title>Address</mat-card-title>
   </mat-card-header>
