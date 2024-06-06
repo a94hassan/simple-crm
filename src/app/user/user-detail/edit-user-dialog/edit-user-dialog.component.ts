@@ -30,7 +30,10 @@ export class EditUserDialogComponent {
     this.user = new User(this.userService.user);
   }
 
-  updateUser() {
-    this.userService.updateUser(this.user);
+  async updateUser() {
+    this.loading = true;
+    await this.userService.updateUser(this.user);
+    this.loading = false;
+    this.dialogRef.close();
   }
 }
