@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, doc, getDoc, onSnapshot } from '@angular/fire/firestore';
+import { Firestore, collection, doc, getDoc, onSnapshot, updateDoc } from '@angular/fire/firestore';
 import { UserInterface } from '../interfaces/user.interface';
 import { User } from '../../models/user.class';
 
@@ -46,7 +46,6 @@ export class UserService {
     }
   }
 
-
   setUserObject(obj: any, id:string):UserInterface {
     return {
       id: id || '',
@@ -57,6 +56,16 @@ export class UserService {
       street: obj.street || '',
       zipCode: obj.zipCode || '',
       city: obj.city || '', 
+    }
+  }
+
+  async updateUser(user: User) {
+    if (user.id) {
+      let docRef = this.getSingleDocRef('users', user.id);
+      await updateDoc(docRef, user.toJSON()).catch(
+        (e) => { console.log(e);
+        }
+      );
     }
   }
 }

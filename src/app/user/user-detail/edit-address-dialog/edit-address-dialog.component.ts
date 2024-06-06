@@ -7,7 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
-import { UserInterface } from '../../../interfaces/user.interface';
 
 @Component({
   selector: 'app-edit-address-dialog',
@@ -18,17 +17,17 @@ import { UserInterface } from '../../../interfaces/user.interface';
 })
 export class EditAddressDialogComponent {
 
-  user: UserInterface = new User();
+  user: User = new User();
   birthDate!: Date;
   loading = false;
 
   constructor(public dialogRef: MatDialogRef<EditAddressDialogComponent>, private userService: UserService) {}
 
   ngOnInit() {
-    this.user = this.userService.user;
+    this.user = new User(this.userService.user);
   }
 
-  saveUser() {
-    
+  updateUser() {
+    this.userService.updateUser(this.user);
   }
 }

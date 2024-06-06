@@ -9,7 +9,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
-import { UserInterface } from '../../../interfaces/user.interface';
 
 @Component({
   selector: 'app-edit-user-dialog',
@@ -21,17 +20,17 @@ import { UserInterface } from '../../../interfaces/user.interface';
 })
 export class EditUserDialogComponent {
 
-  user: UserInterface = new User();
+  user: User = new User();
   birthDate!: Date;
   loading = false;
 
   constructor(public dialogRef: MatDialogRef<EditUserDialogComponent>, private userService: UserService) {}
 
   ngOnInit() {
-    this.user = this.userService.user;
+    this.user = new User(this.userService.user);
   }
 
-  saveUser() {
-
+  updateUser() {
+    this.userService.updateUser(this.user);
   }
 }
