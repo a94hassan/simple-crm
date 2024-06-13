@@ -8,6 +8,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
 import { EditAddressDialogComponent } from './edit-address-dialog/edit-address-dialog.component';
+import { User } from '../../../models/user.class';
+import { UserInterface } from '../../interfaces/user.interface';
 
 
 @Component({
@@ -21,6 +23,7 @@ import { EditAddressDialogComponent } from './edit-address-dialog/edit-address-d
 export class UserDetailComponent {
 
   id: string = '';
+  user: UserInterface = new User();
 
   constructor(private route: ActivatedRoute, public userService: UserService, public dialog: MatDialog) { }
 
@@ -29,6 +32,7 @@ export class UserDetailComponent {
       this.id = params['id'];
     });
     await this.userService.getUser(this.id);
+    this.user = this.userService.user;
     console.log(this.userService.user);
   }
 
